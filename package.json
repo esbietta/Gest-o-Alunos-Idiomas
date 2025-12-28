@@ -1,0 +1,31 @@
+{
+  "name": "gestao-alunos-idiomas",
+  "version": "1.0.0",
+  "description": "API REST para Gestão de Alunos e Professores de Idiomas",
+  "main": "src/app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "mocha --recursive --timeout 10000",
+    "test:html": "mocha --recursive --timeout 10000 --reporter mochawesome",
+    "test:automacao": "mocha test-automacao --recursive --timeout 10000",
+    "test:automacao:html": "mocha test-automacao --recursive --timeout 10000 --reporter mochawesome"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "chai": "^6.2.0",
+    "dotenv": "^17.2.3",
+    "mocha": "^11.7.5",
+    "mochawesome": "^7.1.4",
+    "nodemon": "^3.1.0",
+    "supertest": "^7.1.4"
+  }
+}

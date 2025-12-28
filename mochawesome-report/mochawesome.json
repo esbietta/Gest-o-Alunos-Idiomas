@@ -1,0 +1,176 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-01T00:39:52.962Z",
+    "end": "2025-12-01T00:39:53.247Z",
+    "duration": 285,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2d63c996-81c3-4bdd-806a-98e498b56b29",
+      "title": "",
+      "fullFile": "C:\\Projetos\\Gestão-Alunos-Idiomas\\test\\registro\\registro.jira9164.test.js",
+      "file": "\\test\\registro\\registro.jira9164.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "70aed0ea-65db-47a1-8aaf-2eb2df4c82c6",
+          "title": "JIRA-9164: Registro de Usuários (Professor/Aluno)",
+          "fullFile": "C:\\Projetos\\Gestão-Alunos-Idiomas\\test\\registro\\registro.jira9164.test.js",
+          "file": "\\test\\registro\\registro.jira9164.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "1. Registrar usuário com dados válidos",
+              "fullTitle": "JIRA-9164: Registro de Usuários (Professor/Aluno) 1. Registrar usuário com dados válidos",
+              "timedOut": false,
+              "duration": 141,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = Date.now();\nconst usuario = {\n  nome: `Aluno Teste ${timestamp}`,\n  email: `aluno${timestamp}@teste.com`,\n  senha: 'senha1234',\n  tipo: 'aluno'\n};\nconst res = await getApi().post('/api/auth/register').send(usuario);\nexpect(res.status).to.equal(201);\nexpect(res.body).to.have.property('user');\nexpect(res.body.user).to.include({ nome: usuario.nome, email: usuario.email, tipo: usuario.tipo });\nexpect(res.body).to.have.property('token');",
+              "err": {},
+              "uuid": "62636ce0-ebd0-4fac-9cd2-662c64ff6445",
+              "parentUUID": "70aed0ea-65db-47a1-8aaf-2eb2df4c82c6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2. Registrar usuário com dados inválidos ou incompletos",
+              "fullTitle": "JIRA-9164: Registro de Usuários (Professor/Aluno) 2. Registrar usuário com dados inválidos ou incompletos",
+              "timedOut": false,
+              "duration": 5,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await getApi().post('/api/auth/register').send({ nome: '', email: '', senha: '', tipo: '' });\nexpect(res.status).to.equal(400);\nexpect(res.body).to.have.property('error');",
+              "err": {},
+              "uuid": "119325ad-2ace-42b2-9401-dc5d51c7b6cd",
+              "parentUUID": "70aed0ea-65db-47a1-8aaf-2eb2df4c82c6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3. Registrar usuário com e-mail duplicado",
+              "fullTitle": "JIRA-9164: Registro de Usuários (Professor/Aluno) 3. Registrar usuário com e-mail duplicado",
+              "timedOut": false,
+              "duration": 22,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuario = usuarios[0];\nawait getApi().post('/api/auth/register').send(usuario); // registra\nconst res = await getApi().post('/api/auth/register').send(usuario); // tenta duplicar\nexpect(res.status).to.equal(409);\nexpect(res.body).to.have.property('error');",
+              "err": {},
+              "uuid": "c3511834-3ca1-464d-b653-0c961ee51a70",
+              "parentUUID": "70aed0ea-65db-47a1-8aaf-2eb2df4c82c6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "4. Registrar usuário com tipo de perfil inválido",
+              "fullTitle": "JIRA-9164: Registro de Usuários (Professor/Aluno) 4. Registrar usuário com tipo de perfil inválido",
+              "timedOut": false,
+              "duration": 5,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuario = {\n  nome: 'Usuário Inválido',\n  email: `invalido${Date.now()}@teste.com`,\n  senha: 'senha1234',\n  tipo: 'admin'\n};\nconst res = await getApi().post('/api/auth/register').send(usuario);\nexpect(res.status).to.equal(400);\nexpect(res.body).to.have.property('error');",
+              "err": {},
+              "uuid": "3aeed0f4-3f38-44fb-98c6-566a61e04c75",
+              "parentUUID": "70aed0ea-65db-47a1-8aaf-2eb2df4c82c6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "6. Validar geração de token JWT após registro bem-sucedido",
+              "fullTitle": "JIRA-9164: Registro de Usuários (Professor/Aluno) 6. Validar geração de token JWT após registro bem-sucedido",
+              "timedOut": false,
+              "duration": 95,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const usuario = {\n  nome: `Aluno Token ${Date.now()}`,\n  email: `token${Date.now()}@teste.com`,\n  senha: 'senha1234',\n  tipo: 'aluno'\n};\nconst res = await getApi().post('/api/auth/register').send(usuario);\nexpect(res.status).to.equal(201);\nexpect(res.body).to.have.property('token');\nexpect(res.body.token).to.be.a('string');",
+              "err": {},
+              "uuid": "e0d8a8de-3a7d-4667-8d59-7bfa0d406a47",
+              "parentUUID": "70aed0ea-65db-47a1-8aaf-2eb2df4c82c6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "62636ce0-ebd0-4fac-9cd2-662c64ff6445",
+            "119325ad-2ace-42b2-9401-dc5d51c7b6cd",
+            "c3511834-3ca1-464d-b653-0c961ee51a70",
+            "3aeed0f4-3f38-44fb-98c6-566a61e04c75",
+            "e0d8a8de-3a7d-4667-8d59-7bfa0d406a47"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 268,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.5"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}

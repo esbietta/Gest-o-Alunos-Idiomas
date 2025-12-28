@@ -1,0 +1,48 @@
+JIRA-9164: Registro de Usuários (Professor/Aluno)
+
+  ID  Condição	                                                Resultado Esperado	       Camada
+    1 Registrar usuário com dados válidos	                    Registro concluído com sucesso	       API
+	2 Registrar usuário com dados inválidos ou incompletos	    Falha na validação dos dados	       WEB
+	3 Registrar usuário com e-mail duplicado	                Falha por duplicidade de e-mail	       API
+	4 Registrar usuário com tipo de perfil inválido	            Falha por tipo de perfil não permitido   API
+	5 Registrar usuário com senha fora do padrão mínimo	        Mensagem de erro exibida ao usuário	   WEB
+	6 Validar geração de token JWT após registro bem-sucedido	Token JWT gerado corretamente	           API
+	7 Exibir mensagem de sucesso e redirecionamento após registro válido	Mensagem exibida e redirecionamento realizado	WEB
+
+
+JIRA-9165: Login de Usuários (Professor/Aluno)
+
+  ID  Condição	                                                Resultado Esperado	       Camada
+    1 Realizar login com credenciais válidas	                Login bem-sucedido e token JWT emitido	API
+    2 Realizar login com credenciais inválidas	                Falha de autenticação (401)	           API
+    3 Exibir mensagem de erro ao usuário após falha de login	Mensagem “Credenciais inválidas” exibida	WEB
+    4 Acessar recurso protegido sem token JWT	                Falha de autorização	                   API
+    5 Acessar recurso protegido com token expirado	            Falha de autorização	                   API
+    6 Validar conteúdo do token JWT (função de usuário)	        Função correta incluída no token	       API
+    7 Redirecionar usuário para painel conforme o perfil	    Redirecionamento correto (professor/aluno)	WEB
+
+
+JIRA-9167: Gestão de Cursos de Idiomas
+
+  ID  Condição	                                                Resultado Esperado	       Camada
+    1 Gerenciar cursos com usuário autorizado (professor)	    Operação concluída com sucesso	       API
+	2 Gerenciar cursos com usuário não autorizado (aluno)	    Falha por permissão insuficiente	       API
+	3 Criar curso com dados válidos	                            Curso criado corretamente	               API
+	4 Criar curso com dados duplicados (nome/idioma)	        Falha por duplicidade	                   API
+	5 Gerenciar curso com campos obrigatórios ausentes	        Mensagem de validação exibida	           WEB
+	6 Deletar curso com alunos matriculados	                    Falha na exclusão por vínculo existente  API
+	7 Listar cursos disponíveis conforme perfil	                Lista retornada corretamente	           API
+	8 Exibir lista de cursos com layout e filtros corretos	    Dados e filtros exibidos corretamente	   WEB
+
+
+JIRA-9168: Listagem de Alunos
+
+  ID  Condição	                                                Resultado Esperado	       Camada
+    1 Listar alunos com usuário autorizado (professor)	        Lista completa de alunos exibida	       API
+	2 Listar alunos com usuário aluno	                        Exibe apenas o próprio perfil	           API
+	3 Acessar listagem sem autenticação	                        Falha por ausência de token	           API
+	4 Filtrar alunos por critérios disponíveis (curso/idioma)	Lista filtrada corretamente	           API
+	5 Validar associação de alunos a cursos	                    Todos os alunos possuem vínculo válido	   API
+	6 Validar exibição das informações esperadas (nome, curso, idioma, status)	Dados retornados corretamente	API
+	7 Exibir interface de listagem com colunas e filtros corretos	Interface e filtros funcionais	       WEB
+	8 Exibir mensagem quando não houver alunos cadastrados	    Mensagem “Nenhum aluno encontrado” exibida	WEB

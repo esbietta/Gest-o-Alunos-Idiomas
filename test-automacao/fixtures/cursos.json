@@ -1,0 +1,14 @@
+[
+  {
+    "nome": "Inglês Básico",
+    "idioma": "Inglês",
+    "nivel": "Básico",
+    "descricao": "Curso de inglês para iniciantes."
+  },
+  {
+    "nome": "Espanhol Intermediário",
+    "idioma": "Espanhol",
+    "nivel": "Intermediário",
+    "descricao": "Curso de espanhol para nível intermediário."
+  }
+]
