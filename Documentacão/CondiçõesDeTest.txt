@@ -1,4 +1,4 @@
-JIRA-9164: Registro de Usuários (Professor/Aluno)
+JIRA-001: Registro de Usuários (Professor/Aluno)
 
   ID  Condição	                                                Resultado Esperado	       Camada
     1 Registrar usuário com dados válidos	                    Registro concluído com sucesso	       API
@@ -10,7 +10,7 @@ JIRA-9164: Registro de Usuários (Professor/Aluno)
 	7 Exibir mensagem de sucesso e redirecionamento após registro válido	Mensagem exibida e redirecionamento realizado	WEB
 
 
-JIRA-9165: Login de Usuários (Professor/Aluno)
+JIRA-002: Login de Usuários (Professor/Aluno)
 
   ID  Condição	                                                Resultado Esperado	       Camada
     1 Realizar login com credenciais válidas	                Login bem-sucedido e token JWT emitido	API
@@ -22,7 +22,7 @@ JIRA-9165: Login de Usuários (Professor/Aluno)
     7 Redirecionar usuário para painel conforme o perfil	    Redirecionamento correto (professor/aluno)	WEB
 
 
-JIRA-9167: Gestão de Cursos de Idiomas
+JIRA-003: Gestão de Cursos de Idiomas
 
   ID  Condição	                                                Resultado Esperado	       Camada
     1 Gerenciar cursos com usuário autorizado (professor)	    Operação concluída com sucesso	       API
@@ -35,7 +35,7 @@ JIRA-9167: Gestão de Cursos de Idiomas
 	8 Exibir lista de cursos com layout e filtros corretos	    Dados e filtros exibidos corretamente	   WEB
 
 
-JIRA-9168: Listagem de Alunos
+JIRA-004: Listagem de Alunos
 
   ID  Condição	                                                Resultado Esperado	       Camada
     1 Listar alunos com usuário autorizado (professor)	        Lista completa de alunos exibida	       API
